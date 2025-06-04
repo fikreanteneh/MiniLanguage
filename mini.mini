@@ -1,0 +1,31 @@
+
+{Accept 3 numbers, select the max number}
+read a;
+read b;
+read c;
+
+max := 0;
+
+if a < b then
+    if b < c then
+        max := c;
+    else
+        max := b;
+    end;
+else
+    if a < c then
+        max := c;
+    else
+        max := a;
+    end;
+end;
+
+write max;
+
+flag := 3;
+repeat
+    max := max * (max-1)
+    flag := flag-1
+until flag = 0;
+
+write max;
