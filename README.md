@@ -51,7 +51,7 @@ This project implements a **scanner (lexer)** for the **MINI Language** — a si
 | `LPAREN`   | `(`        | Left parenthesis |
 | `RPAREN`   | `)`        | Right parenthesis |
 | `ID`       | `[a-zA-Z_][a-zA-Z0-9_]*` | Identifier (variable name) |
-| `NUM`      | `-?[0-9]+`    | Integer constant |
+| `NUM`      | `[0-9]+`    | Integer constant |
 | `COMMENT`  | `{[^}]*}`  | Comment (ignored) |
 | `WHITESPACE` | `[ \t\n]+` | Skipped whitespace |
 
