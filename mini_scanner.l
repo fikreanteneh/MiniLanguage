@@ -31,16 +31,15 @@ int line_number = 1;
 
 [a-zA-Z_][a-zA-Z0-9_]* { printf("ID\t\t\t%s\n", yytext); }
 
-[0-9]+          { printf("NUM\t\t\t%s\n", yytext); }
+0|[1-9][0-9]*   { printf("NUM\t\t\t%s\n", yytext); }
 
 \{[^}]*\}       { /* Comment: skip */ }
-[ \t\n]+          { /* White Space Skip */ }
+[ \t\n]+        { /* White Space Skip */ }
 
 %%
 
 int main(int argc, char **argv)
 {
-    // -[0-9]+         { printf("NUM\t\t\t%s\n", yytext); } APPLY THIS RULE IF NECCESSARY Becuase - num and num
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <source_file.mini>\n", argv[0]);
         exit(1);

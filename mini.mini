@@ -1,5 +1,4 @@
-
-{Accept 3 numbers, select the max number}
+{ MINI demo: calculates the factorial of the max of three numbers }
 read a;
 read b;
 read c;
@@ -20,12 +19,14 @@ else
     end;
 end;
 
-write max;
+write max; { Output the maximum }
 
-flag := 3;
+fact := 1;
+counter := max;
+
 repeat
-    max := max * (max-1)
-    flag := flag-1
-until flag = 0;
+    fact := fact * counter;
+    counter := counter - 1;
+until counter = 0;
 
-write max;
+write fact; { Output the factorial of the max }

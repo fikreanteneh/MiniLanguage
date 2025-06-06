@@ -1,8 +1,40 @@
-# MINI Language Scanner
+# Mini Language
 
-This project implements a **scanner (lexer)** for the **MINI Language** — a simple educational programming language used to teach basic compiler design concepts.
+## MINI Language Scanner
+
+This project implements a **scanner (lexer)** for the **MINI Language**.
+
+- The `mini.mini` file is an example MINI language source file.
+- To compile the scanner, use `flex` and `gcc`:
+
+  1. Save the Lex file as `mini.l`
+  2. Generate the lexer:
+
+     ```bash
+     flex mini.l
+     ```
+
+  3. Compile the generated C file:
+
+     ```bash
+     gcc lex.yy.c -o mini_scanner
+     ```
+
+  4. Run the scanner on a MINI source file:
+
+     ```bash
+     ./mini_scanner mini.mini
+     ```
+
+- Alternatively, if `mini_scanner` is already compiled, you can test it directly by running:
+
+  ```bash
+  ./mini_scanner source_file
+  ```
 
 ---
+
+## MINI Language Parser
 
 ## 🚀 Features
 
@@ -56,17 +88,3 @@ This project implements a **scanner (lexer)** for the **MINI Language** — a si
 | `WHITESPACE` | `[ \t\n]+` | Skipped whitespace |
 
 ---
-
-## 🛠️ How to Run
-
-### Prerequisites
-
-- `flex` and `gcc` installed on your system
-
-### Steps
-
-1. Save the Lex file as `mini.l`
-2. Generate the lexer:
-
-   ```bash
-   flex mini.l
