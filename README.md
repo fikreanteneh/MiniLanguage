@@ -1,49 +1,69 @@
-# Mini Language
+# Compiler Design Project
 
-## MINI Language Scanner
+This repository contains implementations of various compiler components and language processors, including the MINI Language compiler and assignments from chapters 2 and 3.
 
-This project implements a **scanner (lexer)** for the **MINI Language**.
+## 🏗️ Project Structure
 
-- The `mini.mini` file is an example MINI language source file.
-- To compile the scanner, use `flex` and `gcc`:
+- **mini language compiler/** - The MINI Language compiler implementation
+- **chapter 2/** - Lexical analysis assignments
+  - C++ token recognizer
+  - Number counter implementation
+  - Counter implementation
+- **chapter 3 enhanced calculator/** - Enhanced calculator implementation using Flex and Bison
 
-  1. Save the Lex file as `mini.l`
-  2. Generate the lexer:
+## 📚 Project Components
 
-     ```bash
-     flex mini.l
-     ```
+### Chapter 2: Lexical Analysis
 
-  3. Compile the generated C file:
+Contains implementations of various lexical analyzers:
 
-     ```bash
-     gcc lex.yy.c -o mini_scanner
-     ```
+- **cpp_recognizer.l**: A lexical analyzer for C++ tokens
+- **number_counter.l**: Implementation for counting numbers in input
+- **counter.l**: A basic counter implementation
+- Test files for validating the implementations
 
-  4. Run the scanner on a MINI source file:
+### Chapter 3: Enhanced Calculator
 
-     ```bash
-     ./mini_scanner mini.mini
-     ```
+An implementation of a calculator using Flex and Bison that includes:
 
-- Alternatively, if `mini_scanner` is already compiled, you can test it directly by running:
+- **calc.l**: Lexical analyzer for calculator expressions
+- **calc.y**: Parser for calculator expressions
+- **Makefile**: Build configuration
+- Comprehensive documentation in its README
 
-  ```bash
-  ./mini_scanner source_file
-  ```
+### Mini Language Compiler
 
----
+The main compiler implementation that includes:
 
-## MINI Language Parser
+- Scanner (Lexer)
+- Parser
+- Syntax Tree Generation
+- Error Handling
 
 ## 🚀 Features
+
+### MINI Language Features
 
 - Lexical analysis for MINI language
 - Recognition of all language keywords and symbols
 - Skips whitespace and comments
-- Token stream output for further compiler phases (e.g., parsing)
+- Token stream output for further compiler phases
+- Syntax tree generation
+- Error handling and reporting
 
----
+### Chapter 2 Features
+
+- C++ token recognition
+- Number counting and analysis
+- Basic counter implementation
+- Test suite for validation
+
+### Chapter 3 Features
+
+- Arithmetic expression parsing
+- Operator precedence handling
+- Error detection and reporting
+- Build system integration
 
 ## 📜 MINI Language Overview
 
@@ -58,33 +78,29 @@ This project implements a **scanner (lexer)** for the **MINI Language**.
 - **Comments**: `{ ... }` (non-nestable)
 - **Expressions**: integers, variables, and arithmetic/boolean expressions
 
----
-
 ## 🧠 Tokens Defined
 
-| Token Name | Pattern | Description |
-|------------|---------|-------------|
-| `IF`       | `if`       | Beginning of an if-statement |
-| `THEN`     | `then`     | Marks the body of an if |
-| `ELSE`     | `else`     | Optional part of an if-statement |
-| `END`      | `end`      | Ends an if-statement |
-| `REPEAT`   | `repeat`   | Starts a repeat loop |
-| `UNTIL`    | `until`    | Terminates a repeat loop |
-| `READ`     | `read`     | Input a variable |
-| `WRITE`    | `write`    | Output a variable or expression |
-| `ASSIGN`   | `:=`       | Assignment operator |
-| `PLUS`     | `+`        | Addition |
-| `MINUS`    | `-`        | Subtraction |
-| `TIMES`    | `*`        | Multiplication |
-| `DIVIDE`   | `/`        | Integer division |
-| `LT`       | `<`        | Less than comparison |
-| `EQ`       | `=`        | Equality comparison |
-| `SEMICOLON`| `;`        | Statement separator |
-| `LPAREN`   | `(`        | Left parenthesis |
-| `RPAREN`   | `)`        | Right parenthesis |
-| `ID`       | `[a-zA-Z_][a-zA-Z0-9_]*` | Identifier (variable name) |
-| `NUM`      | `[0-9]+`    | Integer constant |
-| `COMMENT`  | `{[^}]*}`  | Comment (ignored) |
-| `WHITESPACE` | `[ \t\n]+` | Skipped whitespace |
-
----
+| Token Name   | Pattern                  | Description                      |
+| ------------ | ------------------------ | -------------------------------- |
+| `IF`         | `if`                     | Beginning of an if-statement     |
+| `THEN`       | `then`                   | Marks the body of an if          |
+| `ELSE`       | `else`                   | Optional part of an if-statement |
+| `END`        | `end`                    | Ends an if-statement             |
+| `REPEAT`     | `repeat`                 | Starts a repeat loop             |
+| `UNTIL`      | `until`                  | Terminates a repeat loop         |
+| `READ`       | `read`                   | Input a variable                 |
+| `WRITE`      | `write`                  | Output a variable or expression  |
+| `ASSIGN`     | `:=`                     | Assignment operator              |
+| `PLUS`       | `+`                      | Addition                         |
+| `MINUS`      | `-`                      | Subtraction                      |
+| `TIMES`      | `*`                      | Multiplication                   |
+| `DIVIDE`     | `/`                      | Integer division                 |
+| `LT`         | `<`                      | Less than comparison             |
+| `EQ`         | `=`                      | Equality comparison              |
+| `SEMICOLON`  | `;`                      | Statement separator              |
+| `LPAREN`     | `(`                      | Left parenthesis                 |
+| `RPAREN`     | `)`                      | Right parenthesis                |
+| `ID`         | `[a-zA-Z_][a-zA-Z0-9_]*` | Identifier (variable name)       |
+| `NUM`        | `[0-9]+`                 | Integer constant                 |
+| `COMMENT`    | `{[^}]*}`                | Comment (ignored)                |
+| `WHITESPACE` | `[ \t\n]+`               | Skipped whitespace               |
